@@ -13,7 +13,9 @@
           "Gorgonzola",
           "Parmesan"
         ],
-        "answer": [2]
+        "answer": [
+          2
+        ]
       },
       {
         "type": "true-false",
@@ -47,7 +49,9 @@
           "Potato",
           "Wheat"
         ],
-        "answer": [2]
+        "answer": [
+          2
+        ]
       },
       {
         "type": "single-select-item",
@@ -58,7 +62,9 @@
           "Cauliflower",
           "Kale"
         ],
-        "answer": [2]
+        "answer": [
+          2
+        ]
       },
       {
         "type": "fill-blank",
@@ -74,7 +80,9 @@
           "New York",
           "San Francisco"
         ],
-        "answer": [3]
+        "answer": [
+          3
+        ]
       },
       {
         "type": "picker",
@@ -97,7 +105,9 @@
           "Flock",
           "Pod"
         ],
-        "answer": [1]
+        "answer": [
+          1
+        ]
       }
     ],
     "scores": [
@@ -133,7 +143,9 @@
           "Empire State Building",
           "The New York Times Building"
         ],
-        "answer": [1]
+        "answer": [
+          1
+        ]
       },
       {
         "type": "multi-select",
@@ -174,7 +186,9 @@
             "Coyote"
           ]
         ],
-        "answer": [2]
+        "answer": [
+          2
+        ]
       },
       {
         "type": "single-select-item",
@@ -185,7 +199,9 @@
           "A Clockwork Orange",
           "Play Misty for me"
         ],
-        "answer": [2]
+        "answer": [
+          2
+        ]
       },
       {
         "type": "picker",
@@ -213,7 +229,9 @@
           "The Bermuda Triangle",
           "Black Sea"
         ],
-        "answer": [1]
+        "answer": [
+          1
+        ]
       },
       {
         "type": "single-select",
@@ -224,7 +242,9 @@
           "Cashew",
           "Pistachio"
         ],
-        "answer": [1]
+        "answer": [
+          1
+        ]
       }
     ],
     "scores": [
@@ -262,7 +282,9 @@
           "Lyndon B. Johnson",
           "Ronald Reagan"
         ],
-        "answer": [1]
+        "answer": [
+          1
+        ]
       },
       {
         "type": "true-false",
@@ -305,7 +327,9 @@
           "General",
           "Captain"
         ],
-        "answer": [2]
+        "answer": [
+          2
+        ]
       },
       {
         "type": "picker",
@@ -324,7 +348,9 @@
           "Réunion",
           "New Caledonia"
         ],
-        "answer": [1]
+        "answer": [
+          1
+        ]
       },
       {
         "type": "multi-select",
@@ -446,7 +472,9 @@
           "Seoul",
           "Sydney"
         ],
-        "answer": [1]
+        "answer": [
+          1
+        ]
       },
       {
         "type": "fill-blank",
@@ -479,7 +507,9 @@
           "Antarctica",
           "Argentina"
         ],
-        "answer": [2]
+        "answer": [
+          2
+        ]
       }
     ],
     "scores": [
@@ -518,7 +548,9 @@
           "Falcon",
           "Sparrow"
         ],
-        "answer": [1]
+        "answer": [
+          1
+        ]
       },
       {
         "type": "four-quarter",
@@ -529,7 +561,9 @@
           "Cheetah",
           "Siamese"
         ],
-        "answer": [2]
+        "answer": [
+          2
+        ]
       },
       {
         "type": "toggle-translate",
@@ -612,7 +646,9 @@
           "Worm",
           "Bear"
         ],
-        "answer": [2]
+        "answer": [
+          2
+        ]
       },
       {
         "type": "fill-two-blanks",
@@ -674,7 +710,9 @@
           "Watchmen",
           "Forbidden Planet"
         ],
-        "answer": [1]
+        "answer": [
+          1
+        ]
       },
       {
         "type": "single-select",
@@ -685,7 +723,9 @@
           "Mearth",
           "Magnus"
         ],
-        "answer": [2]
+        "answer": [
+          2
+        ]
       },
       {
         "type": "picker",
@@ -721,7 +761,9 @@
           "Jaws",
           "The Color Purple"
         ],
-        "answer": [2]
+        "answer": [
+          2
+        ]
       },
       {
         "type": "fill-blank",
@@ -757,7 +799,9 @@
           "George",
           "Ringo"
         ],
-        "answer": [2]
+        "answer": [
+          2
+        ]
       },
       {
         "type": "multi-select",
@@ -822,7 +866,9 @@
           "Hugga Wugga",
           "Wild Thing"
         ],
-        "answer": [1]
+        "answer": [
+          1
+        ]
       },
       {
         "type": "true-false",
@@ -846,7 +892,9 @@
           "I Get Around",
           "Good Vibrations"
         ],
-        "answer": [3]
+        "answer": [
+          3
+        ]
       },
       {
         "type": "four-quarter",
@@ -857,7 +905,9 @@
           "Gorrilla",
           "Pitbull"
         ],
-        "answer": [1]
+        "answer": [
+          1
+        ]
       },
       {
         "type": "single-select-item",
@@ -868,7 +918,9 @@
           "White Rose",
           "Black Moth"
         ],
-        "answer": [0]
+        "answer": [
+          0
+        ]
       }
     ],
     "scores": [
@@ -904,7 +956,9 @@
           "Eliminate",
           "Execute"
         ],
-        "answer": [1]
+        "answer": [
+          1
+        ]
       },
       {
         "type": "picker",
@@ -957,7 +1011,9 @@
           "Richard Attenborough",
           "Emmet Brown"
         ],
-        "answer": [2]
+        "answer": [
+          2
+        ]
       },
       {
         "type": "picker",
@@ -1005,7 +1061,9 @@
           "India",
           "USA"
         ],
-        "answer": [2]
+        "answer": [
+          2
+        ]
       },
       {
         "type": "true-false",
@@ -1082,7 +1140,9 @@
           "Big Bill Tilden",
           "Bobby Jones"
         ],
-        "answer": [1]
+        "answer": [
+          1
+        ]
       },
       {
         "type": "single-select-item",
@@ -1093,7 +1153,9 @@
           "Pumptrack",
           "Speedway"
         ],
-        "answer": [1]
+        "answer": [
+          1
+        ]
       },
       {
         "type": "fill-blank",

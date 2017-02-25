@@ -82,7 +82,7 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
     /**
      * Gets all categories with their quizzes.
      *
-     * @param context The context this is running in.
+     * @param context      The context this is running in.
      * @param fromDatabase <code>true</code> if a data refresh is needed, else <code>false</code>.
      * @return All categories stored in the database.
      */
@@ -123,7 +123,7 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
     /**
      * Gets a category from the given position of the cursor provided.
      *
-     * @param cursor The Cursor containing the data.
+     * @param cursor           The Cursor containing the data.
      * @param readableDatabase The database that contains the quizzes.
      * @return The found category.
      */
@@ -149,7 +149,7 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
     /**
      * Looks for a category with a given id.
      *
-     * @param context The context this is running in.
+     * @param context    The context this is running in.
      * @param categoryId Id of the category to look for.
      * @return The found category.
      */
@@ -181,7 +181,7 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
     /**
      * Updates values for a category.
      *
-     * @param context The context this is running in.
+     * @param context  The context this is running in.
      * @param category The category to update.
      */
     public static void updateCategory(Context context, Category category) {
@@ -202,7 +202,7 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
      * Updates a list of given quizzes.
      *
      * @param writableDatabase The database to write the quizzes to.
-     * @param quizzes The quizzes to write.
+     * @param quizzes          The quizzes to write.
      */
     private static void updateQuizzes(SQLiteDatabase writableDatabase, List<Quiz> quizzes) {
         Quiz quiz;
@@ -235,7 +235,7 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
      * Creates objects for quizzes according to a category id.
      *
      * @param categoryId The category to create quizzes for.
-     * @param database The database containing the quizzes.
+     * @param database   The database containing the quizzes.
      * @return The found quizzes or an empty list if none were available.
      */
     private static List<Quiz> getQuizzes(final String categoryId, SQLiteDatabase database) {
@@ -473,9 +473,9 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
     /**
      * Puts a non-empty string to ContentValues provided.
      *
-     * @param values The place where the data should be put.
-     * @param quiz The quiz potentially containing the data.
-     * @param jsonKey The key to look for.
+     * @param values     The place where the data should be put.
+     * @param quiz       The quiz potentially containing the data.
+     * @param jsonKey    The key to look for.
      * @param contentKey The key use for placing the data in the database.
      */
     private void putNonEmptyString(ContentValues values, JSONObject quiz, String jsonKey,

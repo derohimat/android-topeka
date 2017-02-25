@@ -52,10 +52,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
 
     private OnItemClickListener mOnItemClickListener;
 
-    public interface OnItemClickListener {
-        void onClick(View view, int position);
-    }
-
     public CategoryAdapter(Activity activity) {
         mActivity = activity;
         mResources = mActivity.getResources();
@@ -103,8 +99,8 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     }
 
     /**
-     * @see android.support.v7.widget.RecyclerView.Adapter#notifyItemChanged(int)
      * @param id Id of changed category.
+     * @see android.support.v7.widget.RecyclerView.Adapter#notifyItemChanged(int)
      */
     public final void notifyItemChanged(String id) {
         updateCategories(mActivity);
@@ -144,7 +140,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     /**
      * Loads an icon that indicates that a category has already been solved.
      *
-     * @param category The solved category to display.
+     * @param category              The solved category to display.
      * @param categoryImageResource The category's identifying image.
      * @return The icon indicating that the category has been solved.
      */
@@ -170,7 +166,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     /**
      * Loads and tints a drawable.
      *
-     * @param category The category providing the tint color
+     * @param category              The category providing the tint color
      * @param categoryImageResource The image resource to tint
      * @return The tinted resource
      */
@@ -204,6 +200,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
      */
     private int getColor(@ColorRes int colorRes) {
         return ContextCompat.getColor(mActivity, colorRes);
+    }
+
+    public interface OnItemClickListener {
+        void onClick(View view, int position);
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

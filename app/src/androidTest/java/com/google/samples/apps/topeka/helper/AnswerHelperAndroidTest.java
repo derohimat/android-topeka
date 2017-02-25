@@ -19,7 +19,6 @@ package com.google.samples.apps.topeka.helper;
 import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.SmallTest;
 import android.util.SparseBooleanArray;
-import android.widget.AbsListView;
 
 import org.junit.Before;
 import org.junit.Test;

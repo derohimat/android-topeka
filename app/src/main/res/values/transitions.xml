@@ -16,5 +16,5 @@
   -->
 
 <resources>
-    <item type="integer" name="toolbar_transition_duration">350</item>
+    <item name="toolbar_transition_duration" type="integer">350</item>
 </resources>

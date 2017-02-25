@@ -38,7 +38,7 @@ public class OptionsQuizAdapter extends BaseAdapter {
     /**
      * Creates an {@link OptionsQuizAdapter}.
      *
-     * @param options The options to add to the adapter.
+     * @param options  The options to add to the adapter.
      * @param layoutId Must consist of a single {@link TextView}.
      */
     public OptionsQuizAdapter(String[] options, @LayoutRes int layoutId) {
@@ -50,9 +50,9 @@ public class OptionsQuizAdapter extends BaseAdapter {
     /**
      * Creates an {@link OptionsQuizAdapter}.
      *
-     * @param options The options to add to the adapter.
-     * @param layoutId Must consist of a single {@link TextView}.
-     * @param context The context for the adapter.
+     * @param options    The options to add to the adapter.
+     * @param layoutId   Must consist of a single {@link TextView}.
+     * @param context    The context for the adapter.
      * @param withPrefix True if a prefix should be given to all items.
      */
     public OptionsQuizAdapter(String[] options, @LayoutRes int layoutId,

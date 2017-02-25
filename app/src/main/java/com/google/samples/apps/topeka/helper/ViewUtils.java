@@ -29,10 +29,6 @@ import android.widget.TextView;
 
 public class ViewUtils {
 
-    private ViewUtils() {
-        //no instance
-    }
-
     public static final Property<FrameLayout, Integer> FOREGROUND_COLOR =
             new IntProperty<FrameLayout>("foregroundColor") {
 
@@ -54,7 +50,6 @@ public class ViewUtils {
                     }
                 }
             };
-
     public static final Property<View, Integer> BACKGROUND_COLOR =
             new IntProperty<View>("backgroundColor") {
 
@@ -72,7 +67,6 @@ public class ViewUtils {
                     return Color.TRANSPARENT;
                 }
             };
-
     /**
      * Allows changes to the text size in transitions and animations.
      * Using this with something else than {@link ChangeBounds}
@@ -90,7 +84,6 @@ public class ViewUtils {
                     view.setTextSize(TypedValue.COMPLEX_UNIT_PX, textSize);
                 }
             };
-
     /**
      * Allows making changes to the start padding of a view.
      * Using this with something else than {@link ChangeBounds}
@@ -109,6 +102,15 @@ public class ViewUtils {
                             ViewCompat.getPaddingEnd(view), view.getPaddingBottom());
                 }
             };
+
+    private ViewUtils() {
+        //no instance
+    }
+
+    public static void setPaddingStart(TextView target, int paddingStart) {
+        ViewCompat.setPaddingRelative(target, paddingStart, target.getPaddingTop(),
+                ViewCompat.getPaddingEnd(target), target.getPaddingBottom());
+    }
 
     public static abstract class IntProperty<T> extends Property<T, Integer> {
 
@@ -147,11 +149,6 @@ public class ViewUtils {
             //noinspection UnnecessaryUnboxing
             setValue(object, value.floatValue());
         }
-    }
-
-    public static void setPaddingStart(TextView target, int paddingStart) {
-        ViewCompat.setPaddingRelative(target, paddingStart, target.getPaddingTop(),
-                ViewCompat.getPaddingEnd(target), target.getPaddingBottom());
     }
 
 }

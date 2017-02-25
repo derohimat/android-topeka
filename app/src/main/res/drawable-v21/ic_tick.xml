@@ -15,10 +15,10 @@
   ~ limitations under the License.
   -->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="24dp"
-    android:height="24dp"
-    android:viewportHeight="@integer/viewport_height"
-    android:viewportWidth="@integer/viewport_width">
+        android:width="24dp"
+        android:height="24dp"
+        android:viewportHeight="@integer/viewport_height"
+        android:viewportWidth="@integer/viewport_width">
 
     <group
         android:name="@string/groupTickCross"
@@ -30,14 +30,14 @@
             android:pathData="@string/path_tick_line_1"
             android:strokeColor="@color/tick_cross_stroke_color"
             android:strokeLineCap="square"
-            android:strokeWidth="@integer/tick_cross_stroke_width" />
+            android:strokeWidth="@integer/tick_cross_stroke_width"/>
 
         <path
             android:name="@string/line_2"
             android:pathData="@string/path_tick_line_2"
             android:strokeColor="@color/tick_cross_stroke_color"
             android:strokeLineCap="square"
-            android:strokeWidth="@integer/tick_cross_stroke_width" />
+            android:strokeWidth="@integer/tick_cross_stroke_width"/>
 
     </group>
 

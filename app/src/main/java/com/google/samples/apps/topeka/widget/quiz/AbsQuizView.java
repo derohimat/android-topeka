@@ -60,7 +60,7 @@ import com.google.samples.apps.topeka.widget.fab.CheckableFab;
  * </p>
  *
  * @param <Q> The type of {@link com.google.samples.apps.topeka.model.quiz.Quiz} you want to
- * display.
+ *            display.
  */
 public abstract class AbsQuizView<Q extends Quiz> extends FrameLayout {
 
@@ -82,9 +82,9 @@ public abstract class AbsQuizView<Q extends Quiz> extends FrameLayout {
     /**
      * Enables creation of views for quizzes.
      *
-     * @param context The context for this view.
+     * @param context  The context for this view.
      * @param category The {@link Category} this view is running in.
-     * @param quiz The actual {@link Quiz} that is going to be displayed.
+     * @param quiz     The actual {@link Quiz} that is going to be displayed.
      */
     public AbsQuizView(Context context, Category category, Q quiz) {
         super(context);

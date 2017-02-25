@@ -21,16 +21,16 @@
               android:orientation="vertical">
 
     <TextView
-            tools:ignore="PrivateResource"
-            android:id="@+id/start"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        android:id="@+id/start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="PrivateResource"/>
 
-    <include layout="@layout/quiz_edit_text" />
+    <include layout="@layout/quiz_edit_text"/>
 
     <TextView
-            tools:ignore="PrivateResource"
-            android:id="@+id/end"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+        android:id="@+id/end"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:ignore="PrivateResource"/>
 </LinearLayout>

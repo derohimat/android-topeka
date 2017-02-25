@@ -39,8 +39,8 @@ import com.google.samples.apps.topeka.widget.OffsetDecoration;
 
 public class CategorySelectionFragment extends Fragment {
 
-    private CategoryAdapter mAdapter;
     private static final int REQUEST_CATEGORY = 0x2300;
+    private CategoryAdapter mAdapter;
 
     public static CategorySelectionFragment newInstance() {
         return new CategorySelectionFragment();

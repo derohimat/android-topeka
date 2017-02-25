@@ -15,9 +15,9 @@
   -->
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
     <item android:state_checked="false" android:state_pressed="true">
-        <color android:color="@android:color/white" />
+        <color android:color="@android:color/white"/>
     </item>
     <item android:state_checked="true">
-        <color android:color="@color/red" />
+        <color android:color="@color/red"/>
     </item>
 </selector>

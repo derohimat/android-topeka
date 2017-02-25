@@ -25,9 +25,9 @@ import android.support.test.runner.AndroidJUnit4;
 import android.test.suitebuilder.annotation.LargeTest;
 
 import com.google.samples.apps.topeka.R;
+import com.google.samples.apps.topeka.SolveQuizUtil;
 import com.google.samples.apps.topeka.activity.QuizActivity;
 import com.google.samples.apps.topeka.helper.PreferencesHelper;
-import com.google.samples.apps.topeka.SolveQuizUtil;
 import com.google.samples.apps.topeka.model.Avatar;
 import com.google.samples.apps.topeka.model.Category;
 import com.google.samples.apps.topeka.model.Player;
@@ -57,6 +57,7 @@ import static org.hamcrest.Matchers.allOf;
  */
 public abstract class BaseQuizActivityTest {
 
+    private List<Category> mCategories;
     @Rule
     public final ActivityTestRule<QuizActivity> mActivityRule =
             new ActivityTestRule<QuizActivity>(QuizActivity.class) {
@@ -77,8 +78,6 @@ public abstract class BaseQuizActivityTest {
                             getCurrentCategory());
                 }
             };
-
-    private List<Category> mCategories;
 
     /**
      * @return The category's position.
