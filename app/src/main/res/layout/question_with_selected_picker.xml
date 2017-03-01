@@ -1,0 +1,38 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:background="?colorPrimary"
+              android:clickable="false"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/question_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="false"
+        android:elevation="@dimen/elevation_header"
+        android:gravity="center_vertical"
+        android:minHeight="@dimen/min_height_question_random"
+        android:padding="@dimen/spacing_double"
+        android:textAppearance="@style/TextAppearance.AppCompat.Title.Inverse"
+        android:textColor="?android:attr/textColorPrimary"
+        tools:ignore="Overdraw,UnusedAttribute,PrivateResource"/>
+
+    <com.anton46.collectionitempicker.CollectionPicker
+        android:id="@+id/collection_item_picker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/spacing_double"
+        android:clickable="false"
+        android:minHeight="100dp"
+        app:cp_itemBackgroundNormal="@color/topeka_primary"
+        app:cp_itemBackgroundPressed="@color/topeka_primary"
+        app:cp_itemMargin="@dimen/spacing_micro"
+        app:cp_simplified="true"
+        app:cp_textPaddingBottom="@dimen/spacing_micro"
+        app:cp_textPaddingLeft="@dimen/spacing_normal"
+        app:cp_textPaddingRight="@dimen/spacing_normal"
+        app:cp_textPaddingTop="@dimen/spacing_micro"/>
+</LinearLayout>

@@ -37,6 +37,7 @@ import com.google.samples.apps.topeka.model.quiz.FourQuarterQuiz;
 import com.google.samples.apps.topeka.model.quiz.MultiSelectQuiz;
 import com.google.samples.apps.topeka.model.quiz.PickerQuiz;
 import com.google.samples.apps.topeka.model.quiz.Quiz;
+import com.google.samples.apps.topeka.model.quiz.RandomWordsQuiz;
 import com.google.samples.apps.topeka.model.quiz.SelectItemQuiz;
 import com.google.samples.apps.topeka.model.quiz.ToggleTranslateQuiz;
 import com.google.samples.apps.topeka.model.quiz.TrueFalseQuiz;
@@ -52,6 +53,7 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 /**
  * Database for storing and retrieving info for categories and quizzes
@@ -275,6 +277,9 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
             case JsonAttributes.QuizType.FILL_BLANK: {
                 return createFillBlankQuiz(cursor, question, answer, solved);
             }
+            case JsonAttributes.QuizType.RANDOM_WORDS: {
+                return createRandomWordsQuiz(question, answer, solved);
+            }
             case JsonAttributes.QuizType.FILL_TWO_BLANKS: {
                 return createFillTwoBlanksQuiz(question, answer, solved);
             }
@@ -310,6 +315,37 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
         final String start = cursor.getString(9);
         final String end = cursor.getString(10);
         return new FillBlankQuiz(question, answer, start, end, solved);
+    }
+
+    public static List<Integer> generate(int n) {
+        List<Integer> arr = new ArrayList<>(n);
+        for (int i = 0; i < n; i++) {
+            arr.add(i);
+        }
+
+        Random rand = new Random();
+        int r; // stores random number
+        int tmp;
+
+        //shuffle above input array
+        for (int i = n; i > 0; i--) {
+            r = rand.nextInt(i);
+
+            tmp = arr.get(i - 1);
+            arr.set(i - 1, arr.get(r));
+            arr.set(r, tmp);
+        }
+        return arr;
+    }
+
+    private static Quiz createRandomWordsQuiz(String question, String answer, boolean solved) {
+        String[] randomWords = answer.split("\\s+");
+
+        List<Integer> numbers = generate(randomWords.length);
+        for (int i = 0; i < randomWords.length; i++) {
+            randomWords[i] = randomWords[numbers.get(i)].replaceAll("[^\\w]", "");
+        }
+        return new RandomWordsQuiz(question, answer, randomWords, solved);
     }
 
     private static Quiz createFillTwoBlanksQuiz(String question, String answer, boolean solved) {

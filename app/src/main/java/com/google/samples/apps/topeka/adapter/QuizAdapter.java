@@ -29,6 +29,7 @@ import com.google.samples.apps.topeka.model.quiz.FourQuarterQuiz;
 import com.google.samples.apps.topeka.model.quiz.MultiSelectQuiz;
 import com.google.samples.apps.topeka.model.quiz.PickerQuiz;
 import com.google.samples.apps.topeka.model.quiz.Quiz;
+import com.google.samples.apps.topeka.model.quiz.RandomWordsQuiz;
 import com.google.samples.apps.topeka.model.quiz.SelectItemQuiz;
 import com.google.samples.apps.topeka.model.quiz.ToggleTranslateQuiz;
 import com.google.samples.apps.topeka.model.quiz.TrueFalseQuiz;
@@ -39,6 +40,7 @@ import com.google.samples.apps.topeka.widget.quiz.FillTwoBlanksQuizView;
 import com.google.samples.apps.topeka.widget.quiz.FourQuarterQuizView;
 import com.google.samples.apps.topeka.widget.quiz.MultiSelectQuizView;
 import com.google.samples.apps.topeka.widget.quiz.PickerQuizView;
+import com.google.samples.apps.topeka.widget.quiz.RandomWordsQuizView;
 import com.google.samples.apps.topeka.widget.quiz.SelectItemQuizView;
 import com.google.samples.apps.topeka.widget.quiz.ToggleTranslateQuizView;
 import com.google.samples.apps.topeka.widget.quiz.TrueFalseQuizView;
@@ -131,6 +133,8 @@ public class QuizAdapter extends BaseAdapter {
                 return new AlphaPickerQuizView(mContext, mCategory, (AlphaPickerQuiz) quiz);
             case FILL_BLANK:
                 return new FillBlankQuizView(mContext, mCategory, (FillBlankQuiz) quiz);
+            case RANDOM_WORDS:
+                return new RandomWordsQuizView(mContext, mCategory, (RandomWordsQuiz) quiz);
             case FILL_TWO_BLANKS:
                 return new FillTwoBlanksQuizView(mContext, mCategory, (FillTwoBlanksQuiz) quiz);
             case FOUR_QUARTER:

@@ -58,6 +58,7 @@ dependencies {
     compile "com.android.support:design:${supportLibVersion}"
     compile "com.android.support:recyclerview-v7:${supportLibVersion}"
     compile "com.android.support.test.espresso:espresso-idling-resource:${espressoVersion}"
+    compile 'com.anton46:collection-picker:1.0.2'
     testCompile "junit:junit:${junitVersion}"
 
     androidTestCompile("com.android.support.test.espresso:espresso-core:${espressoVersion}") {

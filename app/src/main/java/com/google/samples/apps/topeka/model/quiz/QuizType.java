@@ -25,6 +25,7 @@ import com.google.samples.apps.topeka.model.JsonAttributes;
 public enum QuizType {
     ALPHA_PICKER(JsonAttributes.QuizType.ALPHA_PICKER, AlphaPickerQuiz.class),
     FILL_BLANK(JsonAttributes.QuizType.FILL_BLANK, FillBlankQuiz.class),
+    RANDOM_WORDS(JsonAttributes.QuizType.RANDOM_WORDS, RandomWordsQuiz.class),
     FILL_TWO_BLANKS(JsonAttributes.QuizType.FILL_TWO_BLANKS, FillTwoBlanksQuiz.class),
     FOUR_QUARTER(JsonAttributes.QuizType.FOUR_QUARTER, FourQuarterQuiz.class),
     MULTI_SELECT(JsonAttributes.QuizType.MULTI_SELECT, MultiSelectQuiz.class),

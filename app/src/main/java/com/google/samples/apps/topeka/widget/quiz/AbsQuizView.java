@@ -40,13 +40,19 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.anton46.collectionitempicker.CollectionPicker;
+import com.anton46.collectionitempicker.Item;
 import com.google.samples.apps.topeka.R;
 import com.google.samples.apps.topeka.activity.QuizActivity;
 import com.google.samples.apps.topeka.helper.ApiLevelHelper;
 import com.google.samples.apps.topeka.helper.ViewUtils;
 import com.google.samples.apps.topeka.model.Category;
 import com.google.samples.apps.topeka.model.quiz.Quiz;
+import com.google.samples.apps.topeka.model.quiz.QuizType;
 import com.google.samples.apps.topeka.widget.fab.CheckableFab;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * This is the base class for displaying a {@link com.google.samples.apps.topeka.model.quiz.Quiz}.
@@ -75,9 +81,13 @@ public abstract class AbsQuizView<Q extends Quiz> extends FrameLayout {
     private final InputMethodManager mInputMethodManager;
     private boolean mAnswered;
     private TextView mQuestionView;
+    private View mRandomView;
+    private CollectionPicker mPickerView;
     private CheckableFab mSubmitAnswer;
     private Runnable mHideFabRunnable;
     private Runnable mMoveOffScreenRunnable;
+
+    private List<Item> mItems = new ArrayList<>();
 
     /**
      * Enables creation of views for quizzes.
@@ -99,7 +109,11 @@ public abstract class AbsQuizView<Q extends Quiz> extends FrameLayout {
                 (Context.INPUT_METHOD_SERVICE);
 
         setId(quiz.getId());
-        setUpQuestionView();
+        if (quiz.getType().equals(QuizType.RANDOM_WORDS)) {
+            setUpQuestionRandomWordsView();
+        } else {
+            setUpQuestionView();
+        }
         LinearLayout container = createContainerLayout(context);
         View quizContentView = getInitializedContentView();
         addContentView(container, quizContentView);
@@ -115,13 +129,69 @@ public abstract class AbsQuizView<Q extends Quiz> extends FrameLayout {
     }
 
     /**
-     * Sets the behaviour for all question views.
+     * Sets the behaviour for all question views exclude Random Words.
      */
     private void setUpQuestionView() {
         mQuestionView = (TextView) mLayoutInflater.inflate(R.layout.question, this, false);
         mQuestionView.setBackgroundColor(ContextCompat.getColor(getContext(),
                 mCategory.getTheme().getPrimaryColor()));
         mQuestionView.setText(getQuiz().getQuestion());
+    }
+
+    /**
+     * Sets the behaviour for Random Words question views.
+     */
+    private void setUpQuestionRandomWordsView() {
+        mRandomView = mLayoutInflater.inflate(R.layout.question_with_selected_picker, this, false);
+        mQuestionView = (TextView) mRandomView.findViewById(R.id.question_view);
+        mPickerView = (CollectionPicker) mRandomView.findViewById(R.id.collection_item_picker);
+        mRandomView.setBackgroundColor(ContextCompat.getColor(getContext(),
+                mCategory.getTheme().getPrimaryColor()));
+        mQuestionView.setText(getQuiz().getQuestion());
+//        mPickerView.setOnItemClickListener(new OnItemClickListener() {
+//            @Override
+//            public void onClick(Item item, int position) {
+//                if (!item.isSelected) {
+//                    mItems.remove(item);
+//                    mPickerView.drawItemView();
+//                }
+//            }
+//        });
+    }
+
+    protected void pickItem(Item item) {
+        mItems.add(item);
+        mPickerView.setItems(mItems);
+        mPickerView.drawItemView();
+    }
+
+    protected void removeItem(Item item) {
+        mItems.remove(item);
+        mPickerView.setItems(mItems);
+        mPickerView.drawItemView();
+    }
+
+    protected String getSelectedItemString() {
+        if (!mItems.isEmpty()) {
+            String[] selectedString = new String[mItems.size()];
+            for (int i = 0; i < mItems.size(); i++) {
+                selectedString[i] = mItems.get(i).text;
+            }
+
+            if (selectedString.length > 0) {
+                StringBuilder selectedStringBuilder = new StringBuilder();
+
+                for (String s : selectedString) {
+                    selectedStringBuilder.append(s).append(" ");
+                }
+                selectedStringBuilder.deleteCharAt(selectedStringBuilder.length() - 1);
+                return selectedStringBuilder.toString();
+            } else {
+                return "";
+            }
+        } else {
+            return "";
+        }
     }
 
     private LinearLayout createContainerLayout(Context context) {
@@ -146,7 +216,11 @@ public abstract class AbsQuizView<Q extends Quiz> extends FrameLayout {
     private void addContentView(LinearLayout container, View quizContentView) {
         LayoutParams layoutParams = new LayoutParams(LayoutParams.MATCH_PARENT,
                 LayoutParams.WRAP_CONTENT);
-        container.addView(mQuestionView, layoutParams);
+        if (mQuiz.getType().equals(QuizType.RANDOM_WORDS)) {
+            container.addView(mRandomView, layoutParams);
+        } else {
+            container.addView(mQuestionView, layoutParams);
+        }
         container.addView(quizContentView, layoutParams);
         addView(container, layoutParams);
     }

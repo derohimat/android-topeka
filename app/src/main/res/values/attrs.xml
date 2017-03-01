@@ -18,4 +18,31 @@
     <declare-styleable name="AvatarView">
         <attr name="avatar" format="reference"/>
     </declare-styleable>
+
+    <declare-styleable name="CollectionPicker">
+        //Layout radius
+        <attr name="cp_itemRadius" format="dimension"/>
+        //Layout background normal
+        <attr name="cp_itemBackgroundNormal" format="color"/>
+        //Layout background pressed/selected
+        <attr name="cp_itemBackgroundPressed" format="color"/>
+        //Add icon indicator
+        <attr name="cp_addIcon" format="reference"/>
+        //Cancel icon indicator
+        <attr name="cp_cancelIcon" format="reference"/>
+        //Margin beetwen items (Horizontal and vertical)
+        <attr name="cp_itemMargin" format="dimension"/>
+        //Text color
+        <attr name="cp_itemTextColor" format="color"/>
+        //Text paddding to left
+        <attr name="cp_textPaddingLeft" format="dimension"/>
+        //Text paddding to right
+        <attr name="cp_textPaddingRight" format="dimension"/>
+        //Text paddding to top
+        <attr name="cp_textPaddingTop" format="dimension"/>
+        //Text paddding to bottom
+        <attr name="cp_textPaddingBottom" format="dimension"/>
+        //Simplify tags (No icons)
+        <attr name="cp_simplified" format="boolean"/>
+    </declare-styleable>
 </resources>

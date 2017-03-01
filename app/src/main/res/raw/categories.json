@@ -5,17 +5,9 @@
     "theme": "green",
     "quizzes": [
       {
-        "type": "four-quarter",
-        "question": "Name the Italian, semi-soft, rich cheese with blue veins through it.",
-        "options": [
-          "Ricotta",
-          "Blue Cheese",
-          "Gorgonzola",
-          "Parmesan"
-        ],
-        "answer": [
-          2
-        ]
+        "type": "random-words",
+        "question": "Susun Quote berikut !!!",
+        "answer": "Bangsa yang besar adalah bangsa yang menghormati jasa pahlawannya"
       },
       {
         "type": "true-false",
@@ -23,22 +15,9 @@
         "answer": false
       },
       {
-        "type": "multi-select",
-        "question": "What are the three ingredients in mead (spices excluded)?",
-        "options": [
-          "Sugar",
-          "Honey",
-          "Cinnamon",
-          "Water",
-          "Brown Sugar",
-          "Yeast",
-          "Salt"
-        ],
-        "answer": [
-          1,
-          3,
-          5
-        ]
+        "type": "random-words",
+        "question": "Susun Quote berikut !!!",
+        "answer": "Bangsa yang besar adalah bangsa yang menghormati jasa pahlawannya"
       },
       {
         "type": "four-quarter",
@@ -92,9 +71,9 @@
         "answer": 9
       },
       {
-        "type": "fill-blank",
-        "question": "In which American State did chili con carne originate?",
-        "answer": "Texas"
+        "type": "random-words",
+        "question": "Susun Quote berikut !!!",
+        "answer": "Bangsa yang besar adalah bangsa yang menghormati jasa pahlawannya"
       },
       {
         "type": "four-quarter",
