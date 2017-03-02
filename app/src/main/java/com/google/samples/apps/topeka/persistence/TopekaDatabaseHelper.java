@@ -52,8 +52,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
-import java.util.Random;
 
 /**
  * Database for storing and retrieving info for categories and quizzes
@@ -317,33 +317,16 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
         return new FillBlankQuiz(question, answer, start, end, solved);
     }
 
-    public static List<Integer> generate(int n) {
-        List<Integer> arr = new ArrayList<>(n);
-        for (int i = 0; i < n; i++) {
-            arr.add(i);
-        }
-
-        Random rand = new Random();
-        int r; // stores random number
-        int tmp;
-
-        //shuffle above input array
-        for (int i = n; i > 0; i--) {
-            r = rand.nextInt(i);
-
-            tmp = arr.get(i - 1);
-            arr.set(i - 1, arr.get(r));
-            arr.set(r, tmp);
-        }
-        return arr;
-    }
-
     private static Quiz createRandomWordsQuiz(String question, String answer, boolean solved) {
-        String[] randomWords = answer.split("\\s+");
+        String[] splitWords = answer.split("\\s+");
+        String[] randomWords = new String[splitWords.length];
 
-        List<Integer> numbers = generate(randomWords.length);
-        for (int i = 0; i < randomWords.length; i++) {
-            randomWords[i] = randomWords[numbers.get(i)].replaceAll("[^\\w]", "");
+        ArrayList<Integer> numbers = new ArrayList<>();
+        for (int i = 0; i < splitWords.length; ++i) numbers.add(i);
+        Collections.shuffle(numbers);
+
+        for (int i = 0; i < numbers.size(); i++) {
+            randomWords[i] = splitWords[numbers.get(i)].replaceAll("[^\\w]", "");
         }
         return new RandomWordsQuiz(question, answer, randomWords, solved);
     }

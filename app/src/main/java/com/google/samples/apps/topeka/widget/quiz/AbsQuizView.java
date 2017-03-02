@@ -40,7 +40,6 @@ import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.anton46.collectionitempicker.CollectionPicker;
 import com.anton46.collectionitempicker.Item;
 import com.google.samples.apps.topeka.R;
 import com.google.samples.apps.topeka.activity.QuizActivity;
@@ -81,8 +80,9 @@ public abstract class AbsQuizView<Q extends Quiz> extends FrameLayout {
     private final InputMethodManager mInputMethodManager;
     private boolean mAnswered;
     private TextView mQuestionView;
+    private TextView mAnswerView;
     private View mRandomView;
-    private CollectionPicker mPickerView;
+//    private CollectionPicker mPickerView;
     private CheckableFab mSubmitAnswer;
     private Runnable mHideFabRunnable;
     private Runnable mMoveOffScreenRunnable;
@@ -144,31 +144,25 @@ public abstract class AbsQuizView<Q extends Quiz> extends FrameLayout {
     private void setUpQuestionRandomWordsView() {
         mRandomView = mLayoutInflater.inflate(R.layout.question_with_selected_picker, this, false);
         mQuestionView = (TextView) mRandomView.findViewById(R.id.question_view);
-        mPickerView = (CollectionPicker) mRandomView.findViewById(R.id.collection_item_picker);
+        mAnswerView = (TextView) mRandomView.findViewById(R.id.answer_text);
+//        mPickerView = (CollectionPicker) mRandomView.findViewById(R.id.collection_item_picker);
         mRandomView.setBackgroundColor(ContextCompat.getColor(getContext(),
                 mCategory.getTheme().getPrimaryColor()));
         mQuestionView.setText(getQuiz().getQuestion());
-//        mPickerView.setOnItemClickListener(new OnItemClickListener() {
-//            @Override
-//            public void onClick(Item item, int position) {
-//                if (!item.isSelected) {
-//                    mItems.remove(item);
-//                    mPickerView.drawItemView();
-//                }
-//            }
-//        });
     }
 
     protected void pickItem(Item item) {
         mItems.add(item);
-        mPickerView.setItems(mItems);
-        mPickerView.drawItemView();
+//        mPickerView.setItems(mItems);
+//        mPickerView.drawItemView();
+        mAnswerView.setText(getSelectedItemString());
     }
 
     protected void removeItem(Item item) {
         mItems.remove(item);
-        mPickerView.setItems(mItems);
-        mPickerView.drawItemView();
+//        mPickerView.setItems(mItems);
+//        mPickerView.drawItemView();
+        mAnswerView.setText(getSelectedItemString());
     }
 
     protected String getSelectedItemString() {
@@ -227,12 +221,13 @@ public abstract class AbsQuizView<Q extends Quiz> extends FrameLayout {
 
     private void addFloatingActionButton() {
         final int fabSize = getResources().getDimensionPixelSize(R.dimen.size_fab);
-        int bottomOfQuestionView = findViewById(R.id.question_view).getBottom();
+//        int bottomOfQuestionView = findViewById(R.id.question_view).getBottom();
         final LayoutParams fabLayoutParams = new LayoutParams(fabSize, fabSize,
-                Gravity.END | Gravity.TOP);
-        final int halfAFab = fabSize / 2;
+                Gravity.END | Gravity.BOTTOM);
+//        final int halfAFab = fabSize / 2;
         fabLayoutParams.setMargins(0, // left
-                bottomOfQuestionView - halfAFab, //top
+//                bottomOfQuestionView - halfAFab, //top
+                mSpacingDouble, //top
                 0, // right
                 mSpacingDouble); // bottom
         MarginLayoutParamsCompat.setMarginEnd(fabLayoutParams, mSpacingDouble);
