@@ -114,9 +114,9 @@ public class ScoreAdapter extends BaseAdapter {
     /**
      * Convenience method to aid tintint of vector drawables at runtime.
      *
-     * @param context The {@link Context} for this app.
+     * @param context    The {@link Context} for this app.
      * @param drawableId The id of the drawable to load.
-     * @param tintColor The tint to apply.
+     * @param tintColor  The tint to apply.
      * @return The tinted drawable.
      */
     private Drawable loadAndTint(Context context, @DrawableRes int drawableId,

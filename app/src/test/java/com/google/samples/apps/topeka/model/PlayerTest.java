@@ -33,7 +33,7 @@ public class PlayerTest {
         assertThat(new Player(FIRST_NAME, LAST_INITIAL, AVATAR), notNullValue());
     }
 
-       @Test
+    @Test
     public void equals_self_true() throws Exception {
         Player player = getPlayer();
         assertThat(player.equals(player), is(true));

@@ -16,8 +16,6 @@
 
 package com.google.samples.apps.topeka.widget;
 
-import com.google.samples.apps.topeka.helper.ViewUtils;
-
 import android.annotation.TargetApi;
 import android.os.Build;
 import android.support.annotation.Nullable;
@@ -27,6 +25,8 @@ import android.util.TypedValue;
 import android.view.View;
 import android.widget.TextView;
 
+import com.google.samples.apps.topeka.helper.ViewUtils;
+
 import java.util.List;
 
 /**
@@ -35,11 +35,11 @@ import java.util.List;
 @TargetApi(Build.VERSION_CODES.LOLLIPOP)
 public class TextSharedElementCallback extends SharedElementCallback {
 
+    private static final String TAG = "TextResize";
     private final int mInitialPaddingStart;
     private final float mInitialTextSize;
     private float mTargetViewTextSize;
     private int mTargetViewPaddingStart;
-    private static final String TAG = "TextResize";
 
     public TextSharedElementCallback(float initialTextSize, int initialPaddingStart) {
         mInitialTextSize = initialTextSize;
@@ -54,11 +54,11 @@ public class TextSharedElementCallback extends SharedElementCallback {
             Log.w(TAG, "onSharedElementStart: No shared TextView, skipping.");
             return;
         }
-            mTargetViewTextSize = targetView.getTextSize();
-            mTargetViewPaddingStart = targetView.getPaddingStart();
-            // Setup the TextView's start values.
-            targetView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mInitialTextSize);
-            ViewUtils.setPaddingStart(targetView, mInitialPaddingStart);
+        mTargetViewTextSize = targetView.getTextSize();
+        mTargetViewPaddingStart = targetView.getPaddingStart();
+        // Setup the TextView's start values.
+        targetView.setTextSize(TypedValue.COMPLEX_UNIT_PX, mInitialTextSize);
+        ViewUtils.setPaddingStart(targetView, mInitialPaddingStart);
     }
 
     @Override

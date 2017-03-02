@@ -15,19 +15,19 @@
   -->
 
 <animated-vector
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        android:drawable="@drawable/ic_cross">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/ic_cross">
 
     <target
-            android:name="@string/line_1"
-            android:animation="@animator/cross_to_tick_line_1" />
+        android:name="@string/line_1"
+        android:animation="@animator/cross_to_tick_line_1"/>
 
     <target
-            android:name="@string/line_2"
-            android:animation="@animator/cross_to_tick_line_2" />
+        android:name="@string/line_2"
+        android:animation="@animator/cross_to_tick_line_2"/>
 
     <target
-            android:name="@string/groupTickCross"
-            android:animation="@animator/rotate_cross_to_tick" />
+        android:name="@string/groupTickCross"
+        android:animation="@animator/rotate_cross_to_tick"/>
 
 </animated-vector>

@@ -14,9 +14,14 @@
   ~ limitations under the License.
   -->
 <layout>
+
     <data>
-        <variable name="category" type="com.google.samples.apps.topeka.model.Category" />
+
+        <variable
+            name="category"
+            type="com.google.samples.apps.topeka.model.Category"/>
     </data>
+
     <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
                  xmlns:tools="http://schemas.android.com/tools"
                  android:id="@+id/category_item"
@@ -26,22 +31,22 @@
                  tools:ignore="UseCompoundDrawables">
 
         <ImageView
-                android:id="@+id/category_icon"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/size_avatar_toolbar"
-                android:contentDescription="@string/category" />
+            android:id="@+id/category_icon"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/size_avatar_toolbar"
+            android:contentDescription="@string/category"/>
 
         <TextView
-                android:id="@+id/category_title"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@{category.name}"
-                android:layout_gravity="bottom"
-                android:textAppearance="@style/Topeka.TextAppearance.CategoryItem"
-                android:transitionName="@{category.name}"
-                android:padding="@dimen/spacing_double"
-                tools:targetApi="lollipop"/>
+            android:id="@+id/category_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:padding="@dimen/spacing_double"
+            android:text="@{category.name}"
+            android:textAppearance="@style/Topeka.TextAppearance.CategoryItem"
+            android:transitionName="@{category.name}"
+            tools:targetApi="lollipop"/>
 
     </FrameLayout>
 </layout>

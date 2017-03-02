@@ -53,8 +53,6 @@ import static junit.framework.Assert.assertFalse;
 public class CategorySelectionActivityTest {
 
     private Context mTargetContext;
-    private List<Category> mCategories;
-
     @Rule
     public ActivityTestRule<CategorySelectionActivity> mActivityRule =
             new ActivityTestRule<CategorySelectionActivity>(CategorySelectionActivity.class) {
@@ -71,6 +69,7 @@ public class CategorySelectionActivityTest {
                     return CategorySelectionActivity.getStartIntent(mTargetContext, player);
                 }
             };
+    private List<Category> mCategories;
 
     @Before
     public void loadCategories() {

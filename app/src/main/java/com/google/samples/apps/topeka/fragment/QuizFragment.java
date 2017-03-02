@@ -246,11 +246,12 @@ public class QuizFragment extends android.support.v4.app.Fragment {
     public boolean hasSolvedStateListener() {
         return mSolvedStateListener != null;
     }
+
     public void setSolvedStateListener(SolvedStateListener solvedStateListener) {
         mSolvedStateListener = solvedStateListener;
         if (mCategory.isSolved() && null != mSolvedStateListener) {
-                mSolvedStateListener.onCategorySolved();
-            }
+            mSolvedStateListener.onCategorySolved();
+        }
     }
 
     private ScoreAdapter getScoreAdapter() {

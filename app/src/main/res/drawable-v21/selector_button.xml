@@ -19,10 +19,10 @@
     <item>
         <selector>
             <item android:state_pressed="true">
-                <color android:color="?android:attr/windowBackground" />
+                <color android:color="?android:attr/windowBackground"/>
             </item>
             <item>
-                <color android:color="?android:attr/colorPrimary" />
+                <color android:color="?android:attr/colorPrimary"/>
             </item>
         </selector>
     </item>

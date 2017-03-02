@@ -57,17 +57,17 @@ public class CheckableFab extends FloatingActionButton implements Checkable {
     }
 
     @Override
+    public boolean isChecked() {
+        return mIsChecked;
+    }
+
+    @Override
     public void setChecked(boolean checked) {
         if (mIsChecked == checked) {
             return;
         }
         mIsChecked = checked;
         refreshDrawableState();
-    }
-
-    @Override
-    public boolean isChecked() {
-        return mIsChecked;
     }
 
     @Override

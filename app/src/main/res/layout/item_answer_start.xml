@@ -15,14 +15,14 @@
   -->
 
 <TextView
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:tools="http://schemas.android.com/tools"
-        android:id="@android:id/text1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="start|center_vertical"
-        android:minHeight="@dimen/min_height_touch_target"
-        android:paddingStart="@dimen/spacing_normal"
-        android:paddingEnd="@dimen/spacing_normal"
-        android:textAppearance="@style/Topeka.TextAppearance.ListItem"
-        tools:ignore="NewApi" />
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@android:id/text1"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="start|center_vertical"
+    android:minHeight="@dimen/min_height_touch_target"
+    android:paddingEnd="@dimen/spacing_normal"
+    android:paddingStart="@dimen/spacing_normal"
+    android:textAppearance="@style/Topeka.TextAppearance.ListItem"
+    tools:ignore="NewApi"/>

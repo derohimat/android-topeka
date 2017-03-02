@@ -24,7 +24,7 @@ import com.google.samples.apps.topeka.R;
 /**
  * A way to make simple changes to the application's appearance at runtime in correlation to its
  * {@link Category}.
- *
+ * <p>
  * Usually this should be done via attributes and {@link android.view.ContextThemeWrapper}s.
  * In one case in Topeka it is more performant to work like this.
  * This case involves a trade-off between statically loading these themes versus inflation
@@ -58,8 +58,8 @@ public enum Theme {
     private final int mStyleId;
 
     Theme(final int colorPrimaryId, final int colorPrimaryDarkId,
-            final int windowBackgroundColorId, final int textColorPrimaryId,
-            final int accentColorId, final int styleId) {
+          final int windowBackgroundColorId, final int textColorPrimaryId,
+          final int accentColorId, final int styleId) {
         mColorPrimaryId = colorPrimaryId;
         mWindowBackgroundColorId = windowBackgroundColorId;
         mColorPrimaryDarkId = colorPrimaryDarkId;

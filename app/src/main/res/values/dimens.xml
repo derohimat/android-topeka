@@ -29,6 +29,7 @@
 
     <dimen name="min_height_touch_target">48dp</dimen>
     <dimen name="min_height_question">144dp</dimen>
+    <dimen name="min_height_question_random">56dp</dimen>
 
     <dimen name="stroke_width_avatar">4dp</dimen>
 

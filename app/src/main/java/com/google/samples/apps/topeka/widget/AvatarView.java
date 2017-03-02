@@ -42,8 +42,8 @@ import com.google.samples.apps.topeka.widget.outlineprovider.RoundOutlineProvide
  */
 public class AvatarView extends ImageView implements Checkable {
 
-    private boolean mChecked;
     private static final int NOT_FOUND = 0;
+    private boolean mChecked;
 
     public AvatarView(Context context) {
         this(context, null);
@@ -67,14 +67,14 @@ public class AvatarView extends ImageView implements Checkable {
     }
 
     @Override
-    public void setChecked(boolean b) {
-        mChecked = b;
-        invalidate();
+    public boolean isChecked() {
+        return mChecked;
     }
 
     @Override
-    public boolean isChecked() {
-        return mChecked;
+    public void setChecked(boolean b) {
+        mChecked = b;
+        invalidate();
     }
 
     @Override

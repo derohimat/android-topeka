@@ -105,7 +105,7 @@ public class Category implements Parcelable {
     /**
      * Updates a score for a provided quiz within this category.
      *
-     * @param which The quiz to rate.
+     * @param which           The quiz to rate.
      * @param correctlySolved <code>true</code> if the quiz was solved else <code>false</code>.
      */
     public void setScore(Quiz which, boolean correctlySolved) {

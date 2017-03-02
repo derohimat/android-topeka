@@ -38,6 +38,7 @@ public interface JsonAttributes {
 
         String ALPHA_PICKER = "alpha-picker";
         String FILL_BLANK = "fill-blank";
+        String RANDOM_WORDS = "random-words";
         String FILL_TWO_BLANKS = "fill-two-blanks";
         String FOUR_QUARTER = "four-quarter";
         String MULTI_SELECT = "multi-select";

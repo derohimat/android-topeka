@@ -37,6 +37,7 @@ import com.google.samples.apps.topeka.model.quiz.FourQuarterQuiz;
 import com.google.samples.apps.topeka.model.quiz.MultiSelectQuiz;
 import com.google.samples.apps.topeka.model.quiz.PickerQuiz;
 import com.google.samples.apps.topeka.model.quiz.Quiz;
+import com.google.samples.apps.topeka.model.quiz.RandomWordsQuiz;
 import com.google.samples.apps.topeka.model.quiz.SelectItemQuiz;
 import com.google.samples.apps.topeka.model.quiz.ToggleTranslateQuiz;
 import com.google.samples.apps.topeka.model.quiz.TrueFalseQuiz;
@@ -51,6 +52,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -82,7 +84,7 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
     /**
      * Gets all categories with their quizzes.
      *
-     * @param context The context this is running in.
+     * @param context      The context this is running in.
      * @param fromDatabase <code>true</code> if a data refresh is needed, else <code>false</code>.
      * @return All categories stored in the database.
      */
@@ -123,7 +125,7 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
     /**
      * Gets a category from the given position of the cursor provided.
      *
-     * @param cursor The Cursor containing the data.
+     * @param cursor           The Cursor containing the data.
      * @param readableDatabase The database that contains the quizzes.
      * @return The found category.
      */
@@ -149,7 +151,7 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
     /**
      * Looks for a category with a given id.
      *
-     * @param context The context this is running in.
+     * @param context    The context this is running in.
      * @param categoryId Id of the category to look for.
      * @return The found category.
      */
@@ -181,7 +183,7 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
     /**
      * Updates values for a category.
      *
-     * @param context The context this is running in.
+     * @param context  The context this is running in.
      * @param category The category to update.
      */
     public static void updateCategory(Context context, Category category) {
@@ -202,7 +204,7 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
      * Updates a list of given quizzes.
      *
      * @param writableDatabase The database to write the quizzes to.
-     * @param quizzes The quizzes to write.
+     * @param quizzes          The quizzes to write.
      */
     private static void updateQuizzes(SQLiteDatabase writableDatabase, List<Quiz> quizzes) {
         Quiz quiz;
@@ -235,7 +237,7 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
      * Creates objects for quizzes according to a category id.
      *
      * @param categoryId The category to create quizzes for.
-     * @param database The database containing the quizzes.
+     * @param database   The database containing the quizzes.
      * @return The found quizzes or an empty list if none were available.
      */
     private static List<Quiz> getQuizzes(final String categoryId, SQLiteDatabase database) {
@@ -275,6 +277,9 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
             case JsonAttributes.QuizType.FILL_BLANK: {
                 return createFillBlankQuiz(cursor, question, answer, solved);
             }
+            case JsonAttributes.QuizType.RANDOM_WORDS: {
+                return createRandomWordsQuiz(question, answer, solved);
+            }
             case JsonAttributes.QuizType.FILL_TWO_BLANKS: {
                 return createFillTwoBlanksQuiz(question, answer, solved);
             }
@@ -310,6 +315,20 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
         final String start = cursor.getString(9);
         final String end = cursor.getString(10);
         return new FillBlankQuiz(question, answer, start, end, solved);
+    }
+
+    private static Quiz createRandomWordsQuiz(String question, String answer, boolean solved) {
+        String[] splitWords = answer.split("\\s+");
+        String[] randomWords = new String[splitWords.length];
+
+        ArrayList<Integer> numbers = new ArrayList<>();
+        for (int i = 0; i < splitWords.length; ++i) numbers.add(i);
+        Collections.shuffle(numbers);
+
+        for (int i = 0; i < numbers.size(); i++) {
+            randomWords[i] = splitWords[numbers.get(i)].replaceAll("[^\\w]", "");
+        }
+        return new RandomWordsQuiz(question, answer, randomWords, solved);
     }
 
     private static Quiz createFillTwoBlanksQuiz(String question, String answer, boolean solved) {
@@ -473,9 +492,9 @@ public class TopekaDatabaseHelper extends SQLiteOpenHelper {
     /**
      * Puts a non-empty string to ContentValues provided.
      *
-     * @param values The place where the data should be put.
-     * @param quiz The quiz potentially containing the data.
-     * @param jsonKey The key to look for.
+     * @param values     The place where the data should be put.
+     * @param quiz       The quiz potentially containing the data.
+     * @param jsonKey    The key to look for.
      * @param contentKey The key use for placing the data in the database.
      */
     private void putNonEmptyString(ContentValues values, JSONObject quiz, String jsonKey,

@@ -30,7 +30,7 @@ public class ParcelableHelper {
     /**
      * Writes a single boolean to a {@link android.os.Parcel}.
      *
-     * @param dest Destination of the value.
+     * @param dest    Destination of the value.
      * @param toWrite Value to write.
      * @see ParcelableHelper#readBoolean(android.os.Parcel)
      */
@@ -52,7 +52,7 @@ public class ParcelableHelper {
      * Allows memory efficient parcelation of enums.
      *
      * @param dest Destination of the value.
-     * @param e Value to write.
+     * @param e    Value to write.
      */
     public static void writeEnumValue(Parcel dest, Enum e) {
         dest.writeInt(e.ordinal());

@@ -61,11 +61,6 @@ public abstract class Quiz<A> implements Parcelable {
             return new Quiz[size];
         }
     };
-
-    private static void performLegacyCatch(Exception e) {
-        Log.e(TAG, "createFromParcel ", e);
-    }
-
     private final String mQuestion;
     private final String mQuizType;
     private A mAnswer;
@@ -74,7 +69,6 @@ public abstract class Quiz<A> implements Parcelable {
      * It does not give information whether the solution was correct or not.
      */
     private boolean mSolved;
-
     protected Quiz(String question, A answer, boolean solved) {
         mQuestion = question;
         mAnswer = answer;
@@ -86,6 +80,10 @@ public abstract class Quiz<A> implements Parcelable {
         mQuestion = in.readString();
         mQuizType = getType().getJsonName();
         mSolved = ParcelableHelper.readBoolean(in);
+    }
+
+    private static void performLegacyCatch(Exception e) {
+        Log.e(TAG, "createFromParcel ", e);
     }
 
     /**

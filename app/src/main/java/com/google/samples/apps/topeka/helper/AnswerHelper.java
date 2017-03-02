@@ -71,7 +71,7 @@ public class AnswerHelper {
      * Checks whether a provided answer is correct.
      *
      * @param checkedItems The items that were selected.
-     * @param answerIds The actual correct answer ids.
+     * @param answerIds    The actual correct answer ids.
      * @return <code>true</code> if correct else <code>false</code>.
      */
     public static boolean isAnswerCorrect(SparseBooleanArray checkedItems, int[] answerIds) {

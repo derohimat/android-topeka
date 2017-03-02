@@ -16,8 +16,6 @@
 
 package com.google.samples.apps.topeka.widget;
 
-import com.google.samples.apps.topeka.helper.ViewUtils;
-
 import android.animation.Animator;
 import android.animation.AnimatorSet;
 import android.animation.ObjectAnimator;
@@ -32,6 +30,8 @@ import android.util.TypedValue;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.google.samples.apps.topeka.helper.ViewUtils;
+
 /**
  * A transition that resizes text of a TextView.
  */
@@ -44,7 +44,7 @@ public class TextResizeTransition extends Transition {
             "com.google.samples.apps.topeka.widget:TextResizeTransition:paddingStart";
 
     private static final String[] TRANSITION_PROPERTIES = {PROPERTY_NAME_TEXT_RESIZE,
-            PROPERTY_NAME_PADDING_RESIZE };
+            PROPERTY_NAME_PADDING_RESIZE};
 
     public TextResizeTransition(Context context, AttributeSet attrs) {
         super(context, attrs);
@@ -65,10 +65,10 @@ public class TextResizeTransition extends Transition {
             throw new UnsupportedOperationException("Doesn't work on "
                     + transitionValues.view.getClass().getName());
         }
-            TextView view = (TextView) transitionValues.view;
-            transitionValues.values.put(PROPERTY_NAME_TEXT_RESIZE, view.getTextSize());
-            transitionValues.values.put(PROPERTY_NAME_PADDING_RESIZE,
-                    ViewCompat.getPaddingStart(view));
+        TextView view = (TextView) transitionValues.view;
+        transitionValues.values.put(PROPERTY_NAME_TEXT_RESIZE, view.getTextSize());
+        transitionValues.values.put(PROPERTY_NAME_PADDING_RESIZE,
+                ViewCompat.getPaddingStart(view));
     }
 
     @Override

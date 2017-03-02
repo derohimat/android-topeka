@@ -34,7 +34,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  * This class can then be used to wrap up operations that while in progress should block tests from
  * accessing the UI.
  * </p>
- *
+ * <p>
  * <pre>
  * {@code
  *   public interface FooServer {
@@ -72,7 +72,7 @@ import java.util.concurrent.atomic.AtomicInteger;
  *   }
  *   }
  *   </pre>
- *
+ * <p>
  * Then in your test setup:
  * <pre>
  *   {@code
@@ -110,9 +110,9 @@ public final class CountingIdlingResource implements IdlingResource {
     /**
      * Creates a CountingIdlingResource.
      *
-     * @param resourceName the resource name this resource should report to Espresso.
+     * @param resourceName  the resource name this resource should report to Espresso.
      * @param debugCounting if true increment & decrement calls will print trace information to
-     * logs.
+     *                      logs.
      */
     public CountingIdlingResource(String resourceName, boolean debugCounting) {
         if (TextUtils.isEmpty(resourceName)) {
@@ -139,7 +139,7 @@ public final class CountingIdlingResource implements IdlingResource {
 
     /**
      * Increments the count of in-flight transactions to the resource being monitored.
-     *
+     * <p>
      * This method can be called from any thread.
      */
     public void increment() {
@@ -155,7 +155,7 @@ public final class CountingIdlingResource implements IdlingResource {
 
     /**
      * Decrements the count of in-flight transactions to the resource being monitored.
-     *
+     * <p>
      * If this operation results in the counter falling below 0 - an exception is raised.
      *
      * @throws IllegalStateException if the counter is below 0.
