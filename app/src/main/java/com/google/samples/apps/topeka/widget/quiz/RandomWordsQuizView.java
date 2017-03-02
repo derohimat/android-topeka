@@ -37,7 +37,6 @@ public class RandomWordsQuizView extends AbsQuizView<RandomWordsQuiz> {
 
     private static final String KEY_ANSWER = "ANSWER";
 
-    private CollectionPicker mPicker;
     private String mAnswerText;
 
     public RandomWordsQuizView(Context context, Category category, RandomWordsQuiz quiz) {
@@ -69,13 +68,14 @@ public class RandomWordsQuizView extends AbsQuizView<RandomWordsQuiz> {
         LinearLayout container = (LinearLayout) getLayoutInflater().inflate(
                 R.layout.quiz_layout_random_words, this, false);
 
-        mPicker = (CollectionPicker) container.findViewById(R.id.collection_item_picker);
+        CollectionPicker mPicker = (CollectionPicker) container.findViewById(R.id.collection_item_picker);
 
         List<Item> items = new ArrayList<>();
         for (int i = 0; i < randomWords.length; i++) {
             String word = randomWords[i];
             items.add(new Item("item" + i, word));
         }
+        setItems(items);
         mPicker.setItems(items);
         mPicker.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -85,7 +85,6 @@ public class RandomWordsQuizView extends AbsQuizView<RandomWordsQuiz> {
                 } else {
                     pickItem(item);
                 }
-                allowAnswer(true);
             }
         });
         return container;
@@ -93,6 +92,6 @@ public class RandomWordsQuizView extends AbsQuizView<RandomWordsQuiz> {
 
     @Override
     protected boolean isAnswerCorrect() {
-        return getQuiz().isAnswerCorrect(getSelectedItemString());
+        return getQuiz().isAnswerCorrect(mAnswerText);
     }
 }

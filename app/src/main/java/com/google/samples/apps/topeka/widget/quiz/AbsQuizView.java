@@ -82,11 +82,12 @@ public abstract class AbsQuizView<Q extends Quiz> extends FrameLayout {
     private TextView mQuestionView;
     private TextView mAnswerView;
     private View mRandomView;
-//    private CollectionPicker mPickerView;
+    //    private CollectionPicker mPickerView;
     private CheckableFab mSubmitAnswer;
     private Runnable mHideFabRunnable;
     private Runnable mMoveOffScreenRunnable;
 
+    private List<Item> mItemsSelected = new ArrayList<>();
     private List<Item> mItems = new ArrayList<>();
 
     /**
@@ -151,25 +152,39 @@ public abstract class AbsQuizView<Q extends Quiz> extends FrameLayout {
         mQuestionView.setText(getQuiz().getQuestion());
     }
 
+    protected void setItems(List<Item> items) {
+        mItems = items;
+    }
+
     protected void pickItem(Item item) {
-        mItems.add(item);
-//        mPickerView.setItems(mItems);
+        mItemsSelected.add(item);
+//        mPickerView.setItems(mItemsSelected);
 //        mPickerView.drawItemView();
         mAnswerView.setText(getSelectedItemString());
+        checkAllowAnswer();
     }
 
     protected void removeItem(Item item) {
-        mItems.remove(item);
-//        mPickerView.setItems(mItems);
+        mItemsSelected.remove(item);
+//        mPickerView.setItems(mItemsSelected);
 //        mPickerView.drawItemView();
         mAnswerView.setText(getSelectedItemString());
+        checkAllowAnswer();
+    }
+
+    private void checkAllowAnswer() {
+        if (mItemsSelected.size() == mItems.size()) {
+            allowAnswer(true);
+        } else {
+            allowAnswer(false);
+        }
     }
 
     protected String getSelectedItemString() {
-        if (!mItems.isEmpty()) {
-            String[] selectedString = new String[mItems.size()];
-            for (int i = 0; i < mItems.size(); i++) {
-                selectedString[i] = mItems.get(i).text;
+        if (!mItemsSelected.isEmpty()) {
+            String[] selectedString = new String[mItemsSelected.size()];
+            for (int i = 0; i < mItemsSelected.size(); i++) {
+                selectedString[i] = mItemsSelected.get(i).text;
             }
 
             if (selectedString.length > 0) {
